@@ -47,4 +47,13 @@ public class Board {
         return pieces[position.getRow()][position.getColumn()];
     }
 
+    /**
+     * Funcao resposavel por posicionar uma peça no tabulheiro
+     */
+    public void placePiece(Piece piece, Position position) {
+        pieces[position.getRow()][position.getColumn()] = piece;
+        piece.position = position;// Seta a posição atual da peça
+
+    }
+
 }
