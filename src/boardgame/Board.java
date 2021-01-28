@@ -9,7 +9,7 @@ public class Board {
         this.rows = rows;
         this.columns = columns;
         pieces = new Piece[rows][columns];
-        
+
     }
 
     public int getRows() {
@@ -26,6 +26,25 @@ public class Board {
 
     public void setColumns(int columns) {
         this.columns = columns;
+    }
+
+    /**
+     * Retorna a mat
+     * 
+     * @return [PT-BR]A matriz de Pieces, dado linha[row] e coluna[column]
+     * @return [ENG]The hue of parts given the row and column
+     */
+    public Piece piece(int row, int colum) {
+        return pieces[row][colum];
+    }
+
+    /**
+     * 
+     * @param position
+     * @return A peça apatir da possição
+     */
+    public Piece piece(Position position) {
+        return pieces[position.getRow()][position.getColumn()];
     }
 
 }
