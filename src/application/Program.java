@@ -37,11 +37,13 @@ public class Program {
                 ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
 
             } catch (ChessException e) {
+                System.out.println();
                 System.out.println(e.getMessage());
                 sc.nextLine();// waiting for the Enter
                 UI.clearScreen();
 
             } catch (InputMismatchException e) {
+                System.out.println();
                 System.out.print(e.getMessage());
                 sc.nextLine();// waiting for the Enter
                 UI.clearScreen();

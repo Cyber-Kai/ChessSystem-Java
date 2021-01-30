@@ -44,7 +44,7 @@ public class ChessMatch {
         Piece p = board.removePiece(source);
         Piece capturedPiece = board.removePiece(target);
         board.placePiece(p, target);
-        
+
         return capturedPiece;
     }
 
@@ -52,8 +52,14 @@ public class ChessMatch {
      * Valida se uma Position é valida, caso seja a função não vai fazer nada
      */
     private void validateSourcePosition(Position position) {
+        // Valida se o position é valida dentro do tabulheiro
         if (!board.thereIsAPiece(position)) {
             throw new ChessException("There is no piece on source position");
+        }
+
+        // Valida se existe algum movimento possivel
+        if (!board.piece(position).isThereanyPossibleMove()) {
+            throw new ChessException("There is no possible moves for the chosen piece");
         }
     }
 
