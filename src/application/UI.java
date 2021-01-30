@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -36,12 +37,22 @@ public class UI {
     private static final String TOPLINE = "  ╔═════════════════╗";
     private static final String BOTLINE = "  ╚═════════════════╝";
 
+    /**
+     * Clear screen using Java: Font:
+     * https://stackoverflow.com/questions/2979383/java-clear-the-console
+     */
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+     //   System.out.flush(); 
+    }
+
+
     public static ChessPosition readChessPosition(Scanner sc) {
         try {
             String msg = sc.nextLine().toLowerCase();
             char column = msg.charAt(0);
             int row = Integer.parseInt(msg.substring(1));
-            
+
             return new ChessPosition(column, row);
 
         } catch (RuntimeException e) {
