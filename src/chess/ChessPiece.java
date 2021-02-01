@@ -2,6 +2,7 @@ package chess;
 
 import boardgame.Board;
 import boardgame.Piece;
+import boardgame.Position;
 
 public abstract class ChessPiece extends Piece {
 
@@ -16,8 +17,16 @@ public abstract class ChessPiece extends Piece {
         return color;
     }
 
-    
-    
+    /**
+     * Funcao pára verificar se uma perça no borde e inimiga
+     * 
+     * @param position
+     * @return
+     */
+    protected boolean isThereOpponentPiece(Position position) {
+        ChessPiece tmpPiece = (ChessPiece) getBoard().piece(position);
+        return tmpPiece != null && tmpPiece.getColor() != color;
 
+    }
 
 }

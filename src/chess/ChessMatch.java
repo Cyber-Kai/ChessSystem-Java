@@ -35,6 +35,7 @@ public class ChessMatch {
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
         validateSourcePosition(source);
+        validateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source, target);
 
         return (ChessPiece) capturedPiece;
@@ -60,6 +61,19 @@ public class ChessMatch {
         // Valida se existe algum movimento possivel
         if (!board.piece(position).isThereanyPossibleMove()) {
             throw new ChessException("There is no possible moves for the chosen piece");
+        }
+    }
+
+    /**
+     * Dado um source verifica se é possivel o momento até o target caso não explode
+     * uma exceção
+     * 
+     * @param source ponto de origiem
+     * @param target ponto desejado
+     */
+    private void validateTargetPosition(Position source, Position target) {
+        if (!board.piece(source).possibleMove(target)) {
+            throw new ChessException("The chosen peice can't move to tarfet position");
         }
     }
 
