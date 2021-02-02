@@ -43,9 +43,8 @@ public class UI {
      */
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
-     //   System.out.flush(); 
+        // System.out.flush();
     }
-
 
     public static ChessPosition readChessPosition(Scanner sc) {
         try {
@@ -69,7 +68,24 @@ public class UI {
             System.out.print((8 - i) + " ║ ");
 
             for (int j = 0; j < pieces.length; j++) {
-                printPiece(pieces[i][j]);
+                printPiece(pieces[i][j],false);
+            }
+
+            System.out.print("║ " + (8 - i) + "\n");
+        }
+        System.out.println(BOTLINE);
+        System.out.println(ALPHABET);
+    }
+
+    public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
+        System.out.println(ALPHABET);
+        System.out.println(TOPLINE);
+
+        for (int i = 0; i < pieces.length; i++) {
+            System.out.print((8 - i) + " ║ ");
+
+            for (int j = 0; j < pieces.length; j++) {
+                printPiece(pieces[i][j], possibleMoves[i][j]);
             }
 
             System.out.print("║ " + (8 - i) + "\n");
@@ -83,9 +99,12 @@ public class UI {
      * 
      * @param piece
      */
-    private static void printPiece(ChessPiece piece) {
+    private static void printPiece(ChessPiece piece, boolean background) {
+        if (background == true) {
+            System.out.print(ANSI_GREEN_BACKGROUND);
+        }
         if (piece == null) {
-            System.out.print("-");
+            System.out.print("-"+ ANSI_RESET);
         } else {
             if (piece.getColor() == Color.WHITE) {
                 System.out.print(ANSI_WHITE + piece + ANSI_RESET);

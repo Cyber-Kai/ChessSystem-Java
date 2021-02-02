@@ -32,53 +32,53 @@ public class Rook extends ChessPiece {
         Position auxPosition = new Position(0, 0);
 
         // above
-        auxPosition.setValue(position.getRow() - 1, position.getColumn());
-        while (getBoard().possitionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
+        auxPosition.setValues(position.getRow() - 1, position.getColumn());
+        while (getBoard().positionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setRow(auxPosition.getRow() - 1);
 
         }
         // Verifica se a ultima possição é uma peace inimiga
-        if (getBoard().possitionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
 
         }
 
         // Left
-        auxPosition.setValue(position.getRow(), position.getColumn() - 1);
-        while (getBoard().possitionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
+        auxPosition.setValues(position.getRow(), position.getColumn() - 1);
+        while (getBoard().positionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setColumn(auxPosition.getColumn() - 1);
 
         }
         // Verifica se a ultima possição é uma peace inimiga
-        if (getBoard().possitionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
 
         }
 
         // Right
-        auxPosition.setValue(position.getRow(), position.getColumn() + 1);
-        while (getBoard().possitionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
+        auxPosition.setValues(position.getRow(), position.getColumn() + 1);
+        while (getBoard().positionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setColumn(auxPosition.getColumn() + 1);
 
         }
         // Verifica se a ultima possição é uma peace inimiga
-        if (getBoard().possitionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
 
         }
 
         // Bellow
-        auxPosition.setValue(position.getRow() + 1, position.getColumn());
-        while (getBoard().possitionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
+        auxPosition.setValues(position.getRow() + 1, position.getColumn());
+        while (getBoard().positionExists(auxPosition) && !getBoard().thereIsAPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
             auxPosition.setRow(auxPosition.getRow() + 1);
 
         }
         // Verifica se a ultima possição é uma peace inimiga
-        if (getBoard().possitionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
+        if (getBoard().positionExists(auxPosition) && isThereOpponentPiece(auxPosition)) {
             mat[auxPosition.getRow()][auxPosition.getColumn()] = true;
 
         }

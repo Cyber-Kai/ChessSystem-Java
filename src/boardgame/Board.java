@@ -31,7 +31,7 @@ public class Board {
      * @return [ENG]The hue of parts given the row and column
      */
     public Piece piece(int row, int colum) {
-        if (!possitionExists(row, colum)) {
+        if (!positionExists(row, colum)) {
             throw new BoardException("Possition not on the board");
         }
 
@@ -44,7 +44,7 @@ public class Board {
      * @return A peça apatir da possição
      */
     public Piece piece(Position position) {
-        if (!possitionExists(position)) {
+        if (!positionExists(position)) {
             throw new BoardException("Possition not on the board");
         }
 
@@ -70,7 +70,7 @@ public class Board {
      * @return a Piece caso haja uma na possição, caso contrario null
      */
     public Piece removePiece(Position position) {
-        if (!possitionExists(position)) {
+        if (!positionExists(position)) {
             throw new BoardException("Possition not on the board");
         }
 
@@ -90,7 +90,7 @@ public class Board {
      * 
      * @return caso a condição seja antedida retorna true
      */
-    private boolean possitionExists(int row, int column) {
+    private boolean positionExists(int row, int column) {
         return row >= 0 && row < this.rows && column >= 0 && column < this.columns;
 
     }
@@ -101,8 +101,8 @@ public class Board {
      * @param position possição a ser validada
      * @return caso a posição seja valida retorna TRUE
      */
-    public boolean possitionExists(Position position) {
-        return possitionExists(position.getRow(), position.getColumn());
+    public boolean positionExists(Position position) {
+        return positionExists(position.getRow(), position.getColumn());
 
     }
 
@@ -110,7 +110,7 @@ public class Board {
      * Dado uma posição verifica-se se existe alguma peça
      */
     public boolean thereIsAPiece(Position position) {
-        if (!possitionExists(position)) {
+        if (!positionExists(position)) {
             throw new BoardException("Possition not on the board");
         }
 
