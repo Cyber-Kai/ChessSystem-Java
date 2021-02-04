@@ -60,7 +60,7 @@ public class UI {
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
-
+       
         System.out.println(ALPHABET);
         System.out.println(TOPLINE);
 
